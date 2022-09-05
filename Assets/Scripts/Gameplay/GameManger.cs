@@ -40,7 +40,7 @@ namespace GamePlay
             gameCanvas.OnFinish += WonGame;
 
             score = new Score();
-
+            return;
             pausables = new List<IPausable>();
             pausables.Add(player);
             pausables.Add(teacher);

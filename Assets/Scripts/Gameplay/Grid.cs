@@ -1,6 +1,5 @@
 using GameData;
 using UnityEngine;
-using System.Collections.Generic;
 using System;
 using Unity.AI.Navigation;
 
@@ -10,23 +9,20 @@ namespace GamePlay
     {
         public event Action<Cell> OnCellClick;
         public event Action OnCellReleased;
-        public int SpaceSize => spaceSize;
 
-        [SerializeField] private List<Cell> cells;
-        [SerializeField] private int spaceSize = 5;
         [SerializeField] private NavMeshSurface surface;
-        [SerializeField] private List<Transform> desks;
+        [SerializeField] private DeskPool desks;
+        [SerializeField] private CellPool cells;
 
         public void Render(GridData gridData)
         {
-            int k = 0;
             for (int i = 0; i < gridData.RowsCount; i++)
             {
                 for (int j = 0; j < gridData.ColsCount; j++)
                 {
                     if (gridData[i, j].CellType != CellType.Empty)
                     {
-                        var cell = cells.Find(x => !x.gameObject.activeSelf && x.CellType == gridData[i, j].CellType);
+                        var cell = cells.Get(gridData[i, j].CellType);
                         cell.OnCellClick += CellClicked;
                         cell.OnCellReleased += CellReleased;
                         cell.gameObject.SetActive(true);
@@ -34,11 +30,10 @@ namespace GamePlay
 
                         if (gridData[i, j].NeedDesk)
                         {
-                            desks[k].position = cell.transform.position + Vector3.left;
-                            desks[k].gameObject.SetActive(true);
-                            k++;
+                            var desk = desks.Pool.Get();
+                            desk.position = cell.transform.position + Vector3.left;
+                            desk.gameObject.SetActive(true);
                         }
-
                     }
                 }
             }
