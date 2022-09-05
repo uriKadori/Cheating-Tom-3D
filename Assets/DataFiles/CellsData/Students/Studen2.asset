@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da24555529aa17d46a92d012e0ee1012, type: 3}
+  m_Name: Studen2
+  m_EditorClassIdentifier: 
+  cellType: 1
+  needDesk: 1
+  scoreFromStudent: 0.1
+  timeToRefillRounds: 100
+  copyRounds: 1

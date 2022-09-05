@@ -4,6 +4,6 @@ namespace GamePlay
 {
     public class Blocker : Cell
     {
-        public override CellData data => throw new System.NotImplementedException();
+        public override CellType CellType => CellType.Bolcker;
     }
 }

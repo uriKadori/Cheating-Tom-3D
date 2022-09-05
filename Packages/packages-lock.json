@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.unity.ai.navigation": {
+      "version": "https://github.com/needle-mirror/com.unity.ai.navigation.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.modules.ai": "1.0.0"
+      },
+      "hash": "df913cbd5f6c92dd39e4e0983141710ce05e2ae5"
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.18",
       "depth": 0,

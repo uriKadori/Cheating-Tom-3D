@@ -2,17 +2,13 @@ using UnityEngine;
 
 namespace GameData
 {
-    public class CellData
+    [CreateAssetMenu(fileName = "CellData", menuName = "ScriptableObjects/CellData", order = 1)]
+    public class CellData : ScriptableObject
     {
-        public virtual CellType CellType => CellType.Empty;
-        public Vector3Int Position { get; set; }
-    }
+        public CellType CellType => cellType;
+        public bool NeedDesk => needDesk;
 
-    public enum CellType
-    {
-        Empty,
-        Student,
-        Player,
-        Bolcker
+        [SerializeField] private CellType cellType;
+        [SerializeField] private bool needDesk;
     }
 }
