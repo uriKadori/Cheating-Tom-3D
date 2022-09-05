@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 5900476967692997056}
   - component: {fileID: 2506974530813810546}
   - component: {fileID: 467073985}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c361a491059c643aae357b46487ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availeablePlaces: []
   agent: {fileID: 467073985}
 --- !u!23 &5129844501865749504
 MeshRenderer:
@@ -71,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: abe09e14127f94446b6f99d0532abe9d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,7 +108,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3326282558357904394}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -138,7 +137,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3326282558357904394}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 6

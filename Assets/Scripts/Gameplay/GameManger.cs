@@ -1,5 +1,4 @@
 using GameData;
-using GameLogic;
 using GameUi;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,7 +39,7 @@ namespace GamePlay
             gameCanvas.OnFinish += WonGame;
 
             score = new Score();
-            return;
+
             pausables = new List<IPausable>();
             pausables.Add(player);
             pausables.Add(teacher);

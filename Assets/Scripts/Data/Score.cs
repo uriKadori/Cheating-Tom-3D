@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace GameLogic
+namespace GameData
 {
     public class Score
     {

@@ -14,13 +14,13 @@ namespace GamePlay
         private IObjectPool<Cell> pool;
         private Cell instantiateItem;
 
-        private void Awake()
-        {
-            pool = new ObjectPool<Cell>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, true, maxPoolSize, maxPoolSize);
-        }
-
         public Cell Get(CellType cellType)
         {
+            if (pool == null)
+            {
+                pool = new ObjectPool<Cell>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, true, maxPoolSize, maxPoolSize);
+            }
+
             if (cellType == CellType.Player)
             {
                 return player;
