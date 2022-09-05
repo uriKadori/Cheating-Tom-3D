@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellType: 1
   needDesk: 1
+  scale: 3
   scoreFromStudent: 0.1
   timeToRefillRounds: 8
   copyRounds: 5

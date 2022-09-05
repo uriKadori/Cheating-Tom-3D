@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace GameData
@@ -7,10 +8,31 @@ namespace GameData
     {
         public float ScoreFromStudent => scoreFromStudent;
         public float TimeToRefillRounds => timeToRefillRounds;
-        public int CopyRounds => copyRounds;
+        public int InitRounds => copyRounds;
+        public int Rounds { get; private set; }
 
         [SerializeField] float scoreFromStudent;
         [SerializeField] float timeToRefillRounds;
         [SerializeField] int copyRounds;
+
+        public void OnEnable()
+        {
+            Rounds = InitRounds;
+        }
+
+        public void Copy()
+        {
+            Rounds--;
+            if (Rounds == 0)
+            {
+                RefillRounds();
+            }
+        }
+
+        private async Task RefillRounds()
+        {
+            //yield return timeToRefillRoundsWaitForSeconds;
+            //Rounds = InitRounds;
+        }
     }
 }

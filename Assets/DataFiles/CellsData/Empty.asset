@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Empty
   m_EditorClassIdentifier: 
   cellType: 0
+  needDesk: 0
+  scale: 3

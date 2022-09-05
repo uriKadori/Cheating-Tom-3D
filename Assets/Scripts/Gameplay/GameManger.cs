@@ -77,21 +77,28 @@ namespace GamePlay
         {
             copying = true;
             Vector3 nearestPlace = target.GetNearestPlaceToCell(player.transform.position);
-            if (target.Rounds > 0)
+            var student = (StudenData)level.GridData[target.Col, target.Row];
+            if (student.Rounds > 0)
             {
-                copyCanvas.Render(target.Rounds, nearestPlace);
+                copyCanvas.Render(student.Rounds, nearestPlace);
             }
         }
 
         private void FinishCopying()
         {
-            if (target == null || target.Rounds == 0)
+            if (target == null)
             {
                 return;
             }
 
-            target.Copy();
-            var scoreFromStudent = target.StudenData.ScoreFromStudent;
+            var student = (StudenData)level.GridData[target.Col, target.Row];
+            if (student.Rounds == 0)
+            {
+                return;
+            }
+
+            student.Copy();
+            var scoreFromStudent = student.ScoreFromStudent;
             score.GrantScore(scoreFromStudent);
             gameCanvas.GrantScore(scoreFromStudent);
         }

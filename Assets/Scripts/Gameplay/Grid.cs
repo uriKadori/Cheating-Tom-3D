@@ -30,15 +30,15 @@ namespace GamePlay
                         cell.OnCellClick += CellClicked;
                         cell.OnCellReleased += CellReleased;
                         cell.gameObject.SetActive(true);
-                        var pos = new Vector3Int(i, 0, j) * SpaceSize;
+                        cell.Render(new Vector3(i, 0, j), gridData[i, j].Scale);
+
                         if (gridData[i, j].NeedDesk)
                         {
-                            desks[k].position = pos + Vector3.left;
+                            desks[k].position = cell.transform.position + Vector3.left;
                             desks[k].gameObject.SetActive(true);
                             k++;
                         }
 
-                        cell.Render(gridData[i, j], pos);
                     }
                 }
             }

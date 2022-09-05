@@ -1,5 +1,4 @@
 using GameData;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,31 +8,9 @@ namespace GamePlay
     {
         [SerializeField] private List<Transform> availeablePlaces;
         public override CellType CellType => CellType.Student;
-        public StudenData StudenData { get; private set; }
-        public int Rounds { get; private set; }
-
-        private WaitForSeconds timeToRefillRounds;
-        public override void Render(CellData cellData, Vector3 pos)
+        public override void Render(Vector3 pos, float Scale)
         {
-            base.Render(cellData, pos);
-            StudenData = cellData as StudenData;
-            Rounds = StudenData.CopyRounds;
-            timeToRefillRounds = new WaitForSeconds(StudenData.TimeToRefillRounds);
-        }
-
-        public void Copy()
-        {
-            Rounds--;
-            if (Rounds == 0)
-            {
-                StartCoroutine(RefillRounds());
-            }
-        }
-
-        private IEnumerator RefillRounds()
-        {
-            yield return timeToRefillRounds;
-            Rounds = StudenData.CopyRounds;
+            base.Render(pos, Scale);
         }
 
         public Vector3 GetNearestPlaceToCell(Vector3 position)
@@ -51,6 +28,11 @@ namespace GamePlay
             }
 
             return nearestPlace;
+        }
+
+        public static implicit operator Student(CellData v)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

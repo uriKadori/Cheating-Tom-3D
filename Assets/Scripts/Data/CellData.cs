@@ -7,8 +7,10 @@ namespace GameData
     {
         public CellType CellType => cellType;
         public bool NeedDesk => needDesk;
+        public float Scale => scale;
 
         [SerializeField] private CellType cellType;
         [SerializeField] private bool needDesk;
+        [SerializeField] private float scale;
     }
 }

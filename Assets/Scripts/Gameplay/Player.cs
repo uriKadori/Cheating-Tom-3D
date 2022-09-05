@@ -17,9 +17,9 @@ namespace GamePlay
         private bool finishPath;
         private Vector3 playerPos;
 
-        public override void Render(CellData cellData, Vector3 pos)
+        public override void Render(Vector3 pos, float Scale)
         {
-            base.Render(cellData, pos);
+            base.Render(pos, Scale);
             agent.enabled = true;
             StartCoroutine(SetFirstPos());
         }
