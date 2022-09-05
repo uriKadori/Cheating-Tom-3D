@@ -1,4 +1,6 @@
+using System;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace GameData
@@ -29,10 +31,10 @@ namespace GameData
             }
         }
 
-        private async Task RefillRounds()
+        private async void RefillRounds()
         {
-            //yield return timeToRefillRoundsWaitForSeconds;
-            //Rounds = InitRounds;
+            await UniTask.Delay(TimeSpan.FromSeconds(timeToRefillRounds), ignoreTimeScale: false);
+            Rounds = InitRounds;
         }
     }
 }
