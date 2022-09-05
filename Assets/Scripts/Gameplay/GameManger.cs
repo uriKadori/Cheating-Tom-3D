@@ -18,7 +18,7 @@ namespace GamePlay
         [SerializeField] private GameCanvas gameCanvas;
         [SerializeField] private Teacher teacher;
 
-        private List<IPausable> pausables;
+        private List<IPausable> pausables = new List<IPausable>();
         private Score score;
         private Student target;
         private bool copying;
@@ -40,7 +40,6 @@ namespace GamePlay
 
             score = new Score();
 
-            pausables = new List<IPausable>();
             pausables.Add(player);
             pausables.Add(teacher);
             pausables.Add(copyCanvas);
